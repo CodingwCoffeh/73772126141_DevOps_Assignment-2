@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  name: With Items Syntax for Ubuntu
+  gather_facts: true
+
+  tasks:
+    - name: Display item message
+      debug:
+        msg: "This is item {{ item }}"
+      with_items:
+        - "a"
+        - "b"
+        - "c"

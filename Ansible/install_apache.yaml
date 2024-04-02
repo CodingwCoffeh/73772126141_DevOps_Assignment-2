@@ -1,0 +1,17 @@
+---
+- name: Download and Start Apache Server
+  hosts: localhost
+
+  tasks:
+    - name: Ensure Apache is Installed
+      become: true
+      package:
+        name: apache2
+        state: present
+
+    - name: Start Apache Service
+      become: true
+      service:
+        name: apache2
+        state: started
+        enabled: yes
